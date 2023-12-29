@@ -1,10 +1,12 @@
 grades = open("grades.txt").read().split("\n")
 
-sum = 0
+sum_grades = 0
+na_count = 0
 for i in grades:
     try:
-        sum += float(i)
+        sum_grades += float(i)
     except:
-        pass
+        na_count += 1
 
-print(f"Average: {sum/len(grades)}")
+print(f"Average (with NA): {sum_grades / len(grades)}")
+print(f"Average (without NA): {sum_grades / (len(grades) - na_count)}")
